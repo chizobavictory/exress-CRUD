@@ -1,12 +1,10 @@
-import express from 'express';
-import { registerUser, getUser, createHotelList, getUserListings } from '../controller/user'
-
+import { NextFunction } from 'connect';
+import express, {Request, Response} from 'express';
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/:userId', getUserListings);
-router.post('/register', registerUser);
-router.post('/user/retrieve/r', getUser);
-router.post('/hotel/list', createHotelList);
+router.get('/', function(req:Request, res:Response, next:NextFunction) {
+  res.send('respond with a resource');
+});
 
-export default router;
+export default router
